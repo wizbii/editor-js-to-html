@@ -45,10 +45,9 @@
             "@cs:lint",
             "@phpstan"
         ],
-        "changelog": "conventional-changelog",
-        "release:patch": "conventional-changelog --patch --commit",
-        "release:minor": "conventional-changelog --minor --commit",
-        "release:major": "conventional-changelog --major --commit"
-    },
-    "version": "1.0.0"
+        "changelog": "conventional-changelog --config=config/conventional-changelog.php",
+        "release:patch": "@changelog --patch --commit",
+        "release:minor": "@changelog --minor --commit",
+        "release:major": "@changelog --major --commit"
+    }
 }
