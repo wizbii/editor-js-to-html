@@ -5,7 +5,7 @@
     "type": "library",
     "require": {
         "symfony/serializer": "^6.4|^7.0",
-        "symfony/property-access": "^7.2",
+        "symfony/property-access": "^6.4|^7.0",
         "phpdocumentor/reflection-docblock": "^5.6"
     },
     "autoload": {
