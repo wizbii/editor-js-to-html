@@ -1,5 +1,6 @@
 {
     "name": "wizbii/editor-js-to-html",
+    "license": "MIT",
     "description": "Php library to render EditorJs to HTML",
     "type": "library",
     "require": {
