@@ -4,6 +4,7 @@ namespace Helper;
 
 use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Wizbii\EditorJsToHtml\Helper\EditorJsHelper;
 
 #[CoversMethod(EditorJsHelper::class, 'renderEditorJsToHtml')]
@@ -81,5 +82,24 @@ class EditorJsHelperTest extends TestCase
             implode("\n", $expectedHtml),
             EditorJsHelper::renderEditorJsToHtml($json)
         );
+    }
+    public function testParseAndRenderEditorJsWithInvalidJson()
+    {
+        $invalidJson = 'invalid json';
+
+        $this->expectException(ExceptionInterface::class);
+
+        EditorJsHelper::renderEditorJsToHtml($invalidJson);
+    }
+    public function testParseAndRenderEditorJsWithPartialJson()
+    {
+        $partialJson = '{
+            "time" : 1724416790049,
+            "version" : "2.29.1"
+        }';
+
+        $this->expectException(ExceptionInterface::class);
+
+        EditorJsHelper::renderEditorJsToHtml($partialJson);
     }
 }
