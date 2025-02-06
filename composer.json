@@ -23,7 +23,8 @@
         "phpunit/phpunit": "^11.5",
         "phpstan/phpstan": "^2.1",
         "rector/rector": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.68"
+        "friendsofphp/php-cs-fixer": "^3.68",
+        "marcocesarato/php-conventional-changelog": "^1.17"
     },
     "scripts": {
         "test": "phpunit --testdox --colors=always",
@@ -43,6 +44,10 @@
             "@rector:lint",
             "@cs:lint",
             "@phpstan"
-        ]
+        ],
+        "changelog": "conventional-changelog",
+        "release:patch": "conventional-changelog --patch --commit",
+        "release:minor": "conventional-changelog --minor --commit",
+        "release:major": "conventional-changelog --major --commit"
     }
 }
