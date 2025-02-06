@@ -5,6 +5,7 @@ namespace Wizbii\EditorJsToHtml\Helper;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
@@ -17,6 +18,9 @@ use Wizbii\EditorJsToHtml\Model\EditorJs;
 
 class EditorJsHelper
 {
+    /**
+     * @throws ExceptionInterface
+     */
     public static function renderEditorJsToHtml(string $json): string
     {
         $editorJs = self::parseEditorJsToObject($json);
@@ -24,6 +28,9 @@ class EditorJsHelper
         return $editorJs->render();
     }
 
+    /**
+     * @throws ExceptionInterface
+     */
     private static function parseEditorJsToObject(string $json): EditorJs
     {
         $serializer = self::createSerializer();
