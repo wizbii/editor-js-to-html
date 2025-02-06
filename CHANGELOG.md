@@ -4,6 +4,11 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.0.2](https://github.com/wizbii/editor-js-to-html/compare/v1.0.1...v1.0.2) (2025-02-06)
+
+
+---
+
 ## [1.0.1](https://github.com/wizbii/editor-js-to-html/compare/v1.0.0...v1.0.1) (2025-02-06)
 
 ### Bug Fixes
