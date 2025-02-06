@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "916b8f7947678e17b96f4a3a1d4278ea",
+    "content-hash": "507c94276455517ff5475ba9c74b69dc",
     "packages": [
         {
             "name": "doctrine/deprecations",
