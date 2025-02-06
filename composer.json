@@ -4,7 +4,7 @@
     "description": "Php library to render EditorJs to HTML",
     "type": "library",
     "require": {
-        "symfony/serializer": "^7.2",
+        "symfony/serializer": "^6.4|^7.0",
         "symfony/property-access": "^7.2",
         "phpdocumentor/reflection-docblock": "^5.6"
     },
