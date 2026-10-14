@@ -15,6 +15,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Wizbii\EditorJsToHtml\Model\EditorJs;
+use Wizbii\EditorJsToHtml\Normalizer\ListItemDenormalizer;
 
 class EditorJsHelper
 {
@@ -46,6 +47,7 @@ class EditorJsHelper
 
         return new Serializer(
             [
+                new ListItemDenormalizer(),
                 new ArrayDenormalizer(),
                 new BackedEnumNormalizer(),
                 new ObjectNormalizer(
