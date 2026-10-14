@@ -6,4 +6,5 @@ enum ListStyle: string
 {
     case ORDERED = 'ordered';
     case UNORDERED = 'unordered';
+    case CHECKLIST = 'checklist';
 }

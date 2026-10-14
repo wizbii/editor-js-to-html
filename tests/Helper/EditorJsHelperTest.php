@@ -83,6 +83,66 @@ class EditorJsHelperTest extends TestCase
             EditorJsHelper::renderEditorJsToHtml($json)
         );
     }
+    public function testParseAndRenderEditorJsWithListV2()
+    {
+        $json = '{
+            "time" : 1724416790049,
+            "blocks" : [
+                {
+                    "id" : "j32LNViJh7",
+                    "type" : "list",
+                    "data" : {
+                        "style" : "unordered",
+                        "meta" : {},
+                        "items" : [
+                            {
+                                "content" : "Pièce d\'identité",
+                                "meta" : {},
+                                "items" : [
+                                    { "content" : "Carte d\'identité", "meta" : {}, "items" : [] },
+                                    { "content" : "Passeport", "meta" : {}, "items" : [] }
+                                ]
+                            },
+                            { "content" : "Justificatif de domicile", "meta" : {}, "items" : [] }
+                        ]
+                    }
+                },
+                {
+                    "id" : "k43MOWjKi8",
+                    "type" : "list",
+                    "data" : {
+                        "style" : "checklist",
+                        "meta" : {},
+                        "items" : [
+                            { "content" : "Avoir moins de 26 ans", "meta" : { "checked" : true }, "items" : [] },
+                            { "content" : "Être étudiant", "meta" : { "checked" : false }, "items" : [] }
+                        ]
+                    }
+                }
+            ],
+            "version" : "2.30.7"
+        }';
+
+        $expectedHtml = [
+            '<ul>',
+            '<li>Pièce d\'identité',
+            '<ul>',
+            '<li>Carte d\'identité</li>',
+            '<li>Passeport</li>',
+            '</ul></li>',
+            '<li>Justificatif de domicile</li>',
+            '</ul>',
+            '<ul class="checklist">',
+            '<li><input type="checkbox" disabled checked /> Avoir moins de 26 ans</li>',
+            '<li><input type="checkbox" disabled /> Être étudiant</li>',
+            '</ul>',
+        ];
+
+        $this->assertEquals(
+            implode("\n", $expectedHtml),
+            EditorJsHelper::renderEditorJsToHtml($json)
+        );
+    }
     public function testParseAndRenderEditorJsWithInvalidJson()
     {
         $invalidJson = 'invalid json';
